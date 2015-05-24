@@ -1,0 +1,22 @@
+<%= form_for @band do |f| %>
+
+<% if @band.errors.any? %>
+    <% @band.errors.full_messages.each do |msg| %>
+    <%flash.notice = msg %>
+  <% end %>
+<% end %>
+
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :mail %><br>
+  <%= f.text_field :mail %>
+</p>
+<p>
+  <%= f.label :creation_date %><br>
+  <%= f.date_select :creation_date, start_year: 1970, end_year: 2015 %>
+</p>
+  <%= f.submit %>
+<% end %>

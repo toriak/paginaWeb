@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'articles#index'
-  resources :articles
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+  root 'bands#index'
+  resources :bands
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

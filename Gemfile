@@ -66,3 +66,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'devise', '~> 3.4.1'
+gem 'rails_admin', '~> 0.6.7'
+
+gem 'rolify', '~> 4.0.0'
+
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'pundit', '~>1.0.0'
+
+group :development do
+	gem 'rails_layout', '~> 1.0.25'
+end
