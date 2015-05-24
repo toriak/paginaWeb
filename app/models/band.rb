@@ -5,6 +5,6 @@ class Band < ActiveRecord::Base
 		length:{minimum: 5}
 	validates :mail,
 		presence: true
-	validates :creation_date,
-		presence: true
+
+	belongs_to :creator, class_name: 'User'
 end

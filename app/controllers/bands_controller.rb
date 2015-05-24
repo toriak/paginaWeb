@@ -14,6 +14,7 @@ class BandsController < ApplicationController
 	end
 	def create
 		@band = Band.new(band_params)
+		@band.creator = current_user
 		@band.save!
 		redirect_to @band
 	end

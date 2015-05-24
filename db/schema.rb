@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519230927) do
+ActiveRecord::Schema.define(version: 20150524233937) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150519230927) do
     t.string   "mail"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "creator_id"
   end
+
+  add_index "bands", ["creator_id"], name: "index_bands_on_creator_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
