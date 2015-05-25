@@ -10,7 +10,7 @@ joeUser = User.new(
   :password              => "12345678",
   :password_confirmation => "12345678"
 )
-
+joeUser.add_role :admin
 joeUser.save!
 
 janeUser = User.new(
@@ -20,6 +20,7 @@ janeUser = User.new(
 )
 janeUser.save!
 
-#Band.create!(name: 'bandjoe', creation_date: Time.now, mail: 'bandjoe@example.com',creator:joeUser)
-Band.create!(name: 'bandajoe', creation_date: Date.parse("2014-10-31"), mail: 'bandjoe@example.com',creator:joeUser)
-Band.create!(name: 'bandditajoe', creation_date: Date.parse("2010-10-31"), mail: 'jane@example.com',creator:janeUser)
+Band.create!(name: 'band of joe', creation_date: Date.parse("2010-05-02") , mail: 'bandjoe@example.com',creator:joeUser)
+Band.create!(name: 'band of jane', creation_date: Date.parse("2012-10-31"), mail: 'jane@example.com',creator:janeUser)
+Band.create!(name: 'the jane', creation_date: Date.parse("2014-07-03"), mail: 'jane@example.com',creator:janeUser)
+Band.create!(name: 'jane and joe', creation_date: Date.parse("2015-06-20") , mail: 'bandjoe@example.com',creator:joeUser)

@@ -31,4 +31,11 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.authorize_with do |controller|
+    unless current_user.has_role? :admin
+      redirect_to main_app.root_path
+    end
+  end
+
 end
