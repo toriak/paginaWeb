@@ -2,9 +2,9 @@
 
 <% @bands.each do |band| %>
 	<%= link_to band.name, band_path(band) %>
-	<%= band.creator%>
 	<br>
 <% end %>
 <br>
 <br>
+
 <%= link_to 'New Bands', new_band_path %>
