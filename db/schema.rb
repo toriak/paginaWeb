@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150526021314) do
 
   add_index "bands", ["creator_id"], name: "index_bands_on_creator_id"
 
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "birth_date"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
