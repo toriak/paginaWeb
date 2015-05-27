@@ -1,0 +1,9 @@
+<h1> Profiles </h1>
+
+<% @profiles.each do |profile| %>
+	<%= link_to profile.name, profile_path(profile) %>
+	<br>
+<% end %>
+
+<br>
+<%= link_to 'Bands', bands_path %>

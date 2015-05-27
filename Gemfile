@@ -76,4 +76,5 @@ gem 'pundit', '~>1.0.0'
 
 group :development do
 	gem 'rails_layout', '~> 1.0.25'
+	gem 'better_errors','~> 2.0.0'
 end

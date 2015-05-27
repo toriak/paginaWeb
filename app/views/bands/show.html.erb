@@ -10,12 +10,7 @@
 	<strong> mail: </strong>
 	<%= @band.mail %>
 </p>
-
-<%# if policy(@band).edit? %>
   <%= link_to 'Edit', edit_band_path(@band) %>
-<%# end %>
-<%# if policy(@band).destroy? %>
   <%= link_to 'Delete', band_path(@band), method: :delete %>
-<%# end %>
 <br>
 <%= link_to 'Back to index', bands_path %>

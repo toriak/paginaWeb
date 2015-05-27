@@ -1,0 +1,21 @@
+
+<h1> <%= @profile.name %> </h1>
+
+<p>
+	<strong> birth_date: </strong>
+	<%= @profile.birth_date %>
+</p>
+
+<p>
+	<strong> email: </strong>
+	<%= @profile.email %>
+</p>
+
+<%# if policy(@profile).edit? %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %>
+<%# end %>
+<%# if policy(@profile).destroy? %>
+  <%= link_to 'Delete', profile_path(@profile), method: :delete %>
+<%# end %>
+<br>
+<%= link_to 'Back to index', profiles_path %>
