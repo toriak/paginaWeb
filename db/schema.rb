@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526021314) do
+ActiveRecord::Schema.define(version: 20150528143434) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20150526021314) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "birth_date"
+    t.integer  "user_id"
   end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
