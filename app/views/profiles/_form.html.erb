@@ -1,0 +1,21 @@
+<%= form_for @profile do |f| %>
+
+<% if @profile.errors.any? %>
+    <% @profile.errors.full_messages.each do |msg| %>
+    <%flash.notice = msg %>
+  <% end %>
+<% end %>
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</p>
+<p>
+  <%= f.label :birth_date %><br>
+  <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 %>
+</p>
+  <%= f.submit %>
+<% end %>
