@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :band, foreign_key: "creator_id"
+  after_create :saludar
+  
+  def saludar
+	puts "Hola, soy #{email}"  
+  end
+
 end
