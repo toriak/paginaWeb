@@ -9,7 +9,7 @@ class BandPolicy < ApplicationPolicy
   end
 
   def create?
-    record.author == user
+    record.creator == user
   end
 
   def new?
