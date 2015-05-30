@@ -1,14 +1,13 @@
 
 <h1> <%= @band.name %> </h1>
-
 <p>
 	<strong> creation_date: </strong>
 	<%= @band.creation_date %>
 </p>
-
 <p>
 	<strong> mail: </strong>
 	<%= @band.mail %>
 </p>
+<hr>
   <%= link_to 'Edit', edit_band_path(@band) %>
   <%= link_to 'Delete', band_path(@band), method: :delete %>
