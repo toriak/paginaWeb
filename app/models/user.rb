@@ -13,10 +13,11 @@ class User < ActiveRecord::Base
   after_create :add_profile_user , on: :create
   protected
     def add_profile_user
-      user2 = User.last
+      user = User.last
+      user.add_role :user
       perfil = Profile.create
-      perfil.user_id=(user2.id)
-      perfil.email=(user2.email)
+      perfil.user_id=(user.id)
+      perfil.email=(user.email)
       perfil.save!
     end
 

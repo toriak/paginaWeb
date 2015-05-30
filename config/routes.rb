@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'bands#index'
   resources :bands
 
-  resources :profiles
+  resources :profiles, except: [:destroy, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
