@@ -6,6 +6,11 @@
   <li>
   <%= link_to('My Profile', profile_path(current_user.id)) %>
   </li>
+  <% if current_user.has_role? :admin %>
+  <li>
+      <%= link_to 'Admin', rails_admin_path %>
+  </li>
+  <% end %>
 <% else %>
   <li>
   <%= link_to('Login', new_user_session_path)  %>
