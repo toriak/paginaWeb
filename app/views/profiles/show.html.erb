@@ -11,9 +11,6 @@
 	<%= @profile.email %>
 </p>
 
-<%# if policy(@profile).edit? %>
+<% if policy(@profile).edit? %>
   <%= link_to 'Edit', edit_profile_path(@profile) %>
-<%# end %>
-<%# if policy(@profile).destroy? %>
-  <%= link_to 'Delete', profile_path(@profile), method: :delete %>
-<%# end %>
+<% end %>

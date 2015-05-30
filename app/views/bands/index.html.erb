@@ -7,4 +7,7 @@
 <br>
 <br>
 
-<%= link_to 'New Bands', new_band_path %>
+<% if policy(Band).new? %>
+  <%= link_to 'New Bands', new_band_path %>
+<% end %>
+
