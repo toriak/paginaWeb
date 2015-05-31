@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcomes#index'
-  #root 'bands#index'
   resources :bands
-  #resources :welcomes, only: [:index]
   resources :profiles, except: [:destroy, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,24 +1,14 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-  <% if current_user.has_role? :admin %>
-  <li>
-      <%= link_to 'Admin', rails_admin_path %>
-  </li>
-  <% end %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  </li>
-  <li>
-  <%= link_to('My Profile', profile_path(current_user.id)) %>
-  </li>
+  <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
 <% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>
-  </li>
+  <li> <%= link_to('Login', new_user_session_path)  %> </li>
 <% end %>
-<li>
-	<%= link_to 'List Profiles', profiles_path %>
-</li>
-<li>
-	<%= link_to 'List Bands', bands_path %>
-</li>
+<% if current_user.present? %>
+  <% if current_user.has_role? :admin %>
+    <li> <%= link_to 'Admin', rails_admin_path %> </li>
+  <% end %>
+  <li> <%= link_to('My Profile', profile_path(current_user.id)) %> </li>
+  <li> <%= link_to 'List Profiles', profiles_path %> </li>
+  <li> <%= link_to 'List Bands', bands_path %> </li>
+<% end %>
