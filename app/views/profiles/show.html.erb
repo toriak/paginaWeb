@@ -1,16 +1,22 @@
+<div class="jumbotron">
 
-<h1> <%= @profile.name %> </h1>
+	<h1 align="center"> <%= @profile.name %> </h1>
 
-<p>
-	<strong> birth_date: </strong>
-	<%= @profile.birth_date %>
-</p>
+  <div class="container">
 
-<p>
-	<strong> email: </strong>
-	<%= @profile.email %>
-</p>
+  	<div class="well well-lg">
+			<p class="text-center">
+				<strong> birth_date: </strong>	<%= @profile.birth_date %>
+			</p>
+			<p class="text-center">
+				<strong> email: </strong>	<%= @profile.email %>
+			</p>
+  	</div>
+	</div>
+	<hr>
+	<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+	<% if policy(@profile).edit? %>
+		<a class="btn btn-primary btn-lg" href=<%= edit_profile_path(@profile) %> role="button">Edit</a>
+	<% end %>
+</div>
 
-<% if policy(@profile).edit? %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %>
-<% end %>

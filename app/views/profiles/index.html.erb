@@ -1,16 +1,19 @@
 <div class="jumbotron">
+
 	<h1 align="center"> Perfiles </h1>
+
   <div class="container">
-  	<p class="text-center">
-  		<% @profiles.each do |profile| %>
-			<%= link_to profile.name, profile_path(profile) %>
-			<br>
-		<% end %>
-  	</p>
-  		<br>
-  	<p class="text-center">
-  		<a class="btn btn-primary btn-lg" href="bands" role="button">Lista Bandas</a>
-  		<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
-  	</p>
+    <div class="well well-lg">
+      <p class="text-center">
+  		  <% @profiles.each do |profile| %>
+          <%= link_to profile.name, profile_path(profile) %>
+          <br>
+        <% end %>
+      </p>
+    </div>
   </div>
+
+  <hr>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+
 </div>

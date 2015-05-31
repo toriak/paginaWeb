@@ -1,18 +1,25 @@
+<div class="jumbotron">
 
-<h1> <%= @band.name %> </h1>
-<p>
-	<strong> creation_date: </strong>
-	<%= @band.creation_date %>
-</p>
-<p>
-	<strong> mail: </strong>
-	<%= @band.mail %>
-</p>
-<hr>
-<% if policy(@band).edit? %>
-  <%= link_to 'Edit', edit_band_path(@band) %>
-<% end %>
-<% if policy(@band).destroy? %>
-  <%= link_to 'Delete', band_path(@band), method: :delete %>
-<% end %>
+	<h1 align="center"> <%= @band.name %> </h1>
+
+  <div class="container">
+
+  	<div class="well well-lg">
+			<p class="text-center">
+				<strong> creation_date: </strong> <%= @band.creation_date %>
+			</p>
+			<p class="text-center">
+				<strong> mail: </strong><%= @band.mail %>
+			</p>
+  	</div>
+	</div>
+	<hr>
+	<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+	<% if policy(@band).edit? %>
+		<a class="btn btn-primary btn-lg" href=<%= edit_band_path(@band) %> role="button">Edit</a>
+		<% end %>
+		<% if policy(@band).destroy? %>
+		<a class="btn btn-primary btn-lg" href=<%= band_path(@band) %> data-method="delete" role="button">Delete</a>
+	<% end %>
+</div>
 

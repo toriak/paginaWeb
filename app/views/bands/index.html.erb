@@ -1,18 +1,21 @@
 <div class="jumbotron">
+
 	<h1 align="center"> Bandas </h1>
+
   <div class="container">
-  	<p class="text-center">
-  		<% @bands.each do |band| %>
-				<%= link_to band.name, band_path(band) %> <br>
-			<% end %>
-  	</p>
-  		<br>
-  	<p class="text-center">
-  		<a class="btn btn-primary btn-lg" href="profiles" role="button">Lista Perfiles</a>
-  		<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
-  		<% if policy(Band).new? %>
-  			<a class="btn btn-primary btn-lg" href="/bands/new" role="button">Nueva Banda</a>
-			<% end %>
-  	</p>
+  	<div class="well well-lg">
+  		<p class="text-center">
+  			<% @bands.each do |band| %>
+					<%= link_to band.name, band_path(band) %> <br>
+				<% end %>
+  		</p>
+		</div>
   </div>
+
+  <hr>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+  <% if policy(Band).new? %>
+		<a class="btn btn-primary btn-lg" href="/bands/new" role="button">Nueva Banda</a>
+	<% end %>
+
 </div>
