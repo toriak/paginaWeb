@@ -1,7 +1,7 @@
 class ProfilePolicy < ApplicationPolicy
 
   def index?
-    true
+  	true
   end
 
   def show?
@@ -12,4 +12,9 @@ class ProfilePolicy < ApplicationPolicy
     (user.present?)&&((record.user == user) || (user.has_role? :admin))
   end
 
+  def index(record)
+  	id_user = record.user_id
+    user = User.find(id_user)
+    return user.has_role? :admin
+  end
 end

@@ -5,17 +5,27 @@
     <%flash.notice = msg %>
   <% end %>
 <% end %>
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-</p>
-<p>
-  <%= f.label :birth_date %><br>
-  <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 %>
-</p>
-  <%= f.submit %>
+
+    <div class="well well-lg">
+      <p class="text-center">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+      <p class="text-center">
+        <%= f.label :email %>
+        <%= @profile.email %>
+      </p>
+      <p class="text-center">
+        <strong> <%= f.label :birth_date %> </strong>
+        <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 %>
+      </p>
+      <p class="text-center">
+        <%= f.submit %>
+      </p>
+    </div>
+
+  </div>
+  <hr>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+</div>
 <% end %>

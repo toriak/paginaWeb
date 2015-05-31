@@ -1,22 +1,28 @@
 <%= form_for @band do |f| %>
 
-<% if @band.errors.any? %>
+  <% if @band.errors.any? %>
     <% @band.errors.full_messages.each do |msg| %>
-    <%flash.notice = msg %>
+      <%flash.notice = msg %>
+    <% end %>
   <% end %>
-<% end %>
 
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :mail %><br>
-  <%= f.text_field :mail %>
-</p>
-<p>
-  <%= f.label :creation_date %><br>
-  <%= f.date_select :creation_date, start_year: 1970, end_year: 2015 %>
-</p>
-  <%= f.submit %>
+  <div class="well well-lg">
+    <p class="text-center">
+      <%= f.label :name %> <%= f.text_field :name %>
+    </p>
+    <p class="text-center">
+      <%= f.label :mail %> <%= f.text_field :mail %>
+    </p>
+    <p class="text-center">
+      <%= f.label :creation_date %> <%= f.date_select :creation_date, start_year: 1970, end_year: 2015 %>
+    </p>
+    <p class="text-center">
+      <%= f.submit %>
+    </p>
+  </div>
+
+  </div>
+  <hr>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+</div>
 <% end %>
