@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
       perfil = Profile.create
       perfil.user_id=(user.id)
       perfil.email=(user.email)
+      perfil.name=(user.email)
       perfil.save!
     end
 
