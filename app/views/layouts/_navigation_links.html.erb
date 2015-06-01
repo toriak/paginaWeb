@@ -8,7 +8,8 @@
   <% if current_user.has_role? :admin %>
     <li> <%= link_to 'Admin', rails_admin_path %> </li>
   <% end %>
-  <li> <%= link_to 'My Profile', profile_path(current_user.id) %> </li>
+  <% perfil = Profile.find(current_user.id) %>
+  <li> <%= link_to 'My Profile', profile_path(perfil) %> </li>
   <li> <%= link_to 'List Profiles', profiles_path %> </li>
   <li> <%= link_to 'List Bands', bands_path %> </li>
 <% end %>
