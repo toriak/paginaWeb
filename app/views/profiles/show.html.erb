@@ -11,6 +11,13 @@
 			<p class="text-center">
 				<strong> email: </strong>	<%= @profile.email %>
 			</p>
+
+			<p class="text-center">
+				<% @profile.instruments.each do |profile| %>
+					<span class="label label-primary"><%= profile.name %></span>
+				<% end %>
+			</p>
+
   	</div>
 	</div>
 	<hr>
@@ -19,4 +26,3 @@
 		<a class="btn btn-primary btn-lg" href=<%= edit_profile_path(@profile) %> role="button">Edit</a>
 	<% end %>
 </div>
-
