@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621044836) do
+ActiveRecord::Schema.define(version: 20150621051836) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20150621044836) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "musical_styles_profiles", force: true do |t|
+    t.integer "musical_style_id"
+    t.integer "profile_id"
+  end
+
+  add_index "musical_styles_profiles", ["musical_style_id", "profile_id"], name: "index_styles_profiles_on_musical_style_id_and_profile_id"
 
   create_table "profiles", force: true do |t|
     t.string   "name"
