@@ -8,4 +8,7 @@ class Band < ActiveRecord::Base
 	validates :creator,
 		presence: true
 	belongs_to :creator, class_name: 'User'
+
+	has_and_belongs_to_many :musical_styles
+
 end
