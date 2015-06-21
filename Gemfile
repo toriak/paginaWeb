@@ -74,6 +74,8 @@ gem 'rolify', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'pundit', '~>1.0.0'
 
+gem 'breadcrumbs_on_rails', '~> 2.3.0'
+
 group :development do
 	gem 'rails_layout', '~> 1.0.25'
 	gem 'better_errors','~> 2.0.0'

@@ -14,12 +14,11 @@
   	</div>
 	</div>
 	<hr>
-	<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
 	<% if policy(@band).edit? %>
-		<a class="btn btn-primary btn-lg" href=<%= edit_band_path(@band) %> role="button">Edit</a>
+		<%= link_to " ", edit_band_path(@band) , :class=>"glyphicon glyphicon-pencil btn btn-primary btn-lg"%>
 		<% end %>
 		<% if policy(@band).destroy? %>
-		<a class="btn btn-primary btn-lg" href=<%= band_path(@band) %> data-method="delete" role="button">Delete</a>
+		<%= link_to " ", band_path(@band) , :class=>"glyphicon glyphicon-remove btn btn-danger btn-lg"%>
 	<% end %>
 </div>
 

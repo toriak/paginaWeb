@@ -1,0 +1,22 @@
+<%= form_for @instrument do |f| %>
+
+  <% if @instrument.errors.any? %>
+    <% @instrument.errors.full_messages.each do |msg| %>
+      <%flash.notice = msg %>
+    <% end %>
+  <% end %>
+
+  <div class="well well-lg">
+    <p class="text-center">
+      <%= f.label :name %> <%= f.text_field :name %>
+    </p>
+    <p class="text-center">
+      <%= f.submit %>
+    </p>
+  </div>
+
+  </div>
+  <hr>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
+</div>
+<% end %>

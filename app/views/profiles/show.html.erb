@@ -21,8 +21,7 @@
   	</div>
 	</div>
 	<hr>
-	<a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
 	<% if policy(@profile).edit? %>
-		<a class="btn btn-primary btn-lg" href=<%= edit_profile_path(@profile) %> role="button">Edit</a>
+		<%= link_to " ", edit_profile_path(@profile) , :class=>"glyphicon glyphicon-pencil btn btn-primary btn-lg"%>
 	<% end %>
 </div>

@@ -2,6 +2,9 @@ class BandsController < ApplicationController
 
 	skip_before_action :authenticate_user!, only: [:index, :show]
 
+	add_breadcrumb "Inicio", :root_path
+  	add_breadcrumb "Bandas", :bands_path
+
 	def index
 		authorize Band
 		@bands = Band.all
@@ -10,10 +13,18 @@ class BandsController < ApplicationController
 	def show
 		@band = Band.find(params[:id])
 		authorize @band
+		add_breadcrumb @band.name, band_path(@band)
+	end
+
+	def edit
+  		@band = Band.find(params[:id])
+  		authorize @band
+  		add_breadcrumb "Edicion de "+@band.name, edit_band_path(@band)
 	end
 	def new
 		authorize Band
 		@band = Band.new
+		add_breadcrumb "Creacion de Banda", new_band_path()
 	end
 	def create
 		@band = Band.new(band_params)
@@ -28,12 +39,6 @@ class BandsController < ApplicationController
 		authorize @band
   		@band.destroy
 	  	redirect_to bands_path
-	end
-
-	def edit
-  		@band = Band.find(params[:id])
-  		authorize @band
-
 	end
 
 	def update

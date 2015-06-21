@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'welcomes#index'
   resources :bands
   resources :profiles, except: [:destroy, :new]
+  resources :instruments, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

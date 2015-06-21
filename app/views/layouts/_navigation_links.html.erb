@@ -1,15 +1,28 @@
 <%# add navigation links to this file %>
-<% if user_signed_in? %>
-  <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
-<% else %>
-  <li> <%= link_to('Login', new_user_session_path)  %> </li>
-<% end %>
 <% if current_user.present? %>
   <% if current_user.has_role? :admin %>
-    <li> <%= link_to 'Admin', rails_admin_path %> </li>
+    <li> <%= link_to '  Admin', rails_admin_path , :class=>"glyphicon glyphicon-user" %> </li>
   <% end %>
-  <% @perfil = Profile.where(user_id: current_user.id).first %>
-  <li> <%= link_to 'My Profile', profile_path(@perfil) %> </li>
-  <li> <%= link_to 'List Profiles', profiles_path %> </li>
-  <li> <%= link_to 'List Bands', bands_path %> </li>
 <% end %>
+
+
+</ul>
+<ul class="nav navbar-nav navbar-right">
+  <% if user_signed_in? %>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones <span class="glyphicon glyphicon-menu-down"></span></a>
+      <ul class="dropdown-menu">
+        <% @perfil = Profile.where(user_id: current_user.id).first %>
+        <li> <%= link_to ' Mi Perfil', profile_path(@perfil)%> </li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to "Instrumentos", instruments_path() %></li>
+        <li role="separator" class="divider"></li>
+        <li> <%= link_to 'Perfiles', profiles_path %> </li>
+        <li> <%= link_to 'Bandas', bands_path %> </li>
+      </ul>
+    </li>
+    <li > <%= link_to('  Salir',destroy_user_session_path, :method => :delete, :class=>"glyphicon glyphicon-off") %> </li>
+  <% else %>
+    <li><%= link_to 'Registrar', new_user_registration_path %></li>
+    <li> <%= link_to('Ingresar', new_user_session_path)  %> </li>
+  <% end %>

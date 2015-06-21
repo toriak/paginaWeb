@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
 
 	skip_before_action :authenticate_user!, only: [:index, :show]
 
+	add_breadcrumb "Inicio", :root_path
+  	add_breadcrumb "Perfiles", :profiles_path
+
 	def index
 		authorize Profile
 		@profiles = Profile.all
@@ -10,6 +13,7 @@ class ProfilesController < ApplicationController
 	def show
 		@profile = Profile.find(params[:id])
 		authorize @profile
+		add_breadcrumb "Perfil de "+@profile.name, profile_path(@profile)
 	end
 
 	def create
@@ -23,6 +27,7 @@ class ProfilesController < ApplicationController
 	def edit
   		@profile = Profile.find(params[:id])
   		authorize @profile
+		add_breadcrumb "Edicion de perfil de "+@profile.name, edit_profile_path(@profile)
 	end
 
 	def update

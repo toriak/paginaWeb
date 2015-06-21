@@ -6,16 +6,15 @@
   	<div class="well well-lg">
   		<p class="text-center">
   			<% @bands.each do |band| %>
-					<%= link_to band.name, band_path(band) %> <br>
+           <%= link_to band.name, band_path(band) %> <br>
 				<% end %>
   		</p>
 		</div>
   </div>
 
   <hr>
-  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
   <% if policy(Band).new? %>
-		<a class="btn btn-primary btn-lg" href="/bands/new" role="button">Nueva Banda</a>
+    <%= link_to "Crear Banda", new_band_path() , :class => "btn btn-primary btn-lg" %>
 	<% end %>
-
+    <%= link_to 'Perfiles', profiles_path, :class=>"btn btn-primary btn-lg" %>
 </div>
