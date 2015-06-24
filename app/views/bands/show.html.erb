@@ -11,6 +11,11 @@
 			<p class="text-center">
 				<strong> mail: </strong><%= @band.mail %>
 			</p>
+			<p class="text-center">
+				<% @band.musical_styles.each do |band| %>
+					<span class="label label-primary"><%= band.name %></span>
+				<% end %>
+			</p>
   	</div>
 	</div>
 	<hr>
