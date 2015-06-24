@@ -8,19 +8,24 @@
 
     <div class="well well-lg">
       <p class="text-center">
-        <%= f.label :name %>
+        <%= f.label :Nombre %>
         <%= f.text_field :name %>
       </p>
       <p class="text-center">
-        <%= f.label :email %>
+        <%= f.label :Mail %>
         <%= @profile.email %>
       </p>
       <p class="text-center">
-        <strong> <%= f.label :birth_date %> </strong>
+        <strong> <%= f.label "Fecha de Nacimiento" %> </strong>
         <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 %>
       </p>
       <p class="text-center">
+        <strong> <%= f.label :Instrumentos %> </strong> <br>
         <%= collection_check_boxes(:profile, :instrument_ids, Instrument.all, :id, :name) %>
+      </p>
+      <p class="text-center">
+        <strong> <%= f.label "Estilos Musicales" %> </strong> <br>
+        <%= collection_check_boxes(:profile, :musical_style_ids, MusicalStyle.all, :id, :name) %>
       </p>
       <p class="text-center">
         <%= f.submit %>

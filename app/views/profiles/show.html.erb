@@ -17,6 +17,11 @@
 					<span class="label label-primary"><%= profile.name %></span>
 				<% end %>
 			</p>
+			<p class="text-center">
+				<% @profile.musical_styles.each do |profile| %>
+					<span class="label label-primary"><%= profile.name %></span>
+				<% end %>
+			</p>
 
   	</div>
 	</div>

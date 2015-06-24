@@ -53,6 +53,6 @@ class BandsController < ApplicationController
 
 	private
 	def band_params
-		params.require(:band).permit(:name,:creation_date, :mail)
+		params.require(:band).permit(:name,:creation_date, :mail ,musical_style_ids: [])
 	end
 end
