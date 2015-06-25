@@ -1,7 +1,7 @@
-<%= form_for @instrument do |f| %>
+<%= form_for @musical_style do |f| %>
 
-  <% if @instrument.errors.any? %>
-    <% @instrument.errors.full_messages.each do |msg| %>
+  <% if @musical_style.errors.any? %>
+    <% @musical_style.errors.full_messages.each do |msg| %>
       <%flash.alert = msg %>
     <% end %>
   <% end %>
@@ -17,6 +17,6 @@
 
   </div>
   <hr>
-    <%= link_to "Cancelar", instruments_path(), :class=>"btn btn-primary btn-lg" %>
+    <%= link_to "Cancelar", musical_styles_path(), :class=>"btn btn-primary btn-lg" %>
 </div>
 <% end %>
