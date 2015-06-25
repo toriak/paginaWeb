@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :bands
   resources :profiles, except: [:destroy, :new]
   resources :instruments, only: [:new, :create, :index]
+  resources :musical_styles, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
