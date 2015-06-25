@@ -13,7 +13,7 @@
   </div>
 
   <hr>
-  <% if current_user.present? %>
+  <% if policy(MusicalStyle).new? %>
     <%= link_to "Nuevo Estilo", new_musical_style_path() , :class => "btn btn-primary btn-lg" %>
   <% end %>
 </div>
