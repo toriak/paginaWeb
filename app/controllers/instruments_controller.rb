@@ -17,10 +17,15 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		@intrument = Instrument.new(instrument_params)
-		authorize @intrument
-		@intrument.save!
-		redirect_to instruments_path
+		@instrument = Instrument.new(instrument_params)
+		authorize @instrument
+		if @instrument.save
+			flash[:notice] = "El instrumento #{@instrument.name} se a creado corectamente"
+			redirect_to instruments_path
+		else
+			flash[:alert] = "Ah ocurrido un error. Vuelva a intentarlo"
+			redirect_to new_instrument_path
+		end
 	end
 
 	private
