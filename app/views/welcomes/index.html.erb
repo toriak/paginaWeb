@@ -1,15 +1,68 @@
 <div class="jumbotron">
-
-	<h1 align="center">Bienvenido </h1>
-
   <div class="container">
     <div class="well well-lg">
-      <p class="text-center">
-        Esperamos que tenga una experiencia placentera en esta pagina web
-      </p>
+      <h3 align="center">
+        Ultimos Eventos
+      </h3>
+      <hr>
+      <div class="row">
+        <div class="col-md-4 ">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 align="center">
+                <%= link_to 'Bandas', profiles_path %>
+              </h4 >
+            </div>
+            <div class="panel-body">
+              <p class="text-center">
+                <% @bands.each do |band| %>
+                 <%= link_to band.name, band_path(band) %> <br>
+              <% end %>
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 ">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 align="center">
+                <%= link_to 'Perfiles', profiles_path %>
+              </h4 >
+            </div>
+            <div class="panel-body">
+              <p class="text-center">
+                <% @profiles.each do |profile| %>
+                  <%= link_to profile.name, profile_path(profile) %>
+                  <br>
+                <% end %>
+              </p>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="panel panel-default" >
+            <div class="panel-heading">
+              <h4 align="center">
+                <%= link_to 'Vacantes', profiles_path %>
+              </h4 >
+            </div>
+            <div class="panel-body">
+              <p class="text-center">
+                <% @profiles.each do |profile| %>
+                  <%= link_to profile.name, profile_path(profile) %>
+                  <br>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-
   <hr>
   <p class="text-center">
     <%= link_to 'Perfiles', profiles_path, :class=>"btn btn-primary btn-lg" %>
