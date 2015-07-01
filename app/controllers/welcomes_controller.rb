@@ -10,6 +10,9 @@ class WelcomesController < ApplicationController
 
 		authorize Profile
 		@profiles = Profile.all
+
+		#authorize Vacancy
+		@vacancies = Vacancy.all
 	end
 
 end

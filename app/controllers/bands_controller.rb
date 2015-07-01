@@ -1,9 +1,8 @@
 class BandsController < ApplicationController
 
 	skip_before_action :authenticate_user!, only: [:index, :show]
-
 	add_breadcrumb "Inicio", :root_path
-  	add_breadcrumb "Bandas", :bands_path
+  add_breadcrumb "Bandas", :bands_path
 
 	def index
 		authorize Band

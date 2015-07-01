@@ -1,9 +1,8 @@
 class MusicalStylesController < ApplicationController
 
-	skip_before_action :authenticate_user!
 
-	add_breadcrumb "Inicio", :root_path
-  	add_breadcrumb "Lista de Estilos", :musical_styles_path
+  add_breadcrumb "Inicio", :root_path
+  add_breadcrumb "Lista de Estilos", :musical_styles_path
 
 	def index
 		#authorize MusicalStyle

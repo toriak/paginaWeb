@@ -1,20 +1,22 @@
 <div class="jumbotron">
   <div class="container">
     <div class="well well-lg">
-      <h3 align="center">
-        Ultimos Eventos
-      </h3>
-      <hr>
       <div class="row">
-        <div class="col-md-4 ">
 
-          <div class="panel panel-default">
+  <%if current_user.present?%>
+
+<h3 align="center">
+Inicio
+</h3>
+<hr>
+        <div class="col-md-4 ">
+          <div class="panel panel-default" >
             <div class="panel-heading">
               <h4 align="center">
-                <%= link_to 'Bandas', profiles_path %>
+                <%= link_to 'Nuevas Bandas Creadas', profiles_path %>
               </h4 >
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="height:170px">
               <p class="text-center">
                 <% @bands.each do |band| %>
                  <%= link_to band.name, band_path(band) %> <br>
@@ -22,16 +24,16 @@
               </p>
             </div>
           </div>
-
         </div>
+
         <div class="col-md-4 ">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 align="center">
-                <%= link_to 'Perfiles', profiles_path %>
+                <%= link_to 'Nuevos Usuarios Registrados', profiles_path %>
               </h4 >
             </div>
-            <div class="panel-body">
+            <div class="panel-body"style="height:170px">
               <p class="text-center">
                 <% @profiles.each do |profile| %>
                   <%= link_to profile.name, profile_path(profile) %>
@@ -41,25 +43,36 @@
             </div>
           </div>
       </div>
-      <div class="row">
+
         <div class="col-md-4 ">
           <div class="panel panel-default" >
             <div class="panel-heading">
               <h4 align="center">
-                <%= link_to 'Vacantes', profiles_path %>
+                <%= link_to 'Nuevas Vacantes', profiles_path %>
               </h4 >
             </div>
-            <div class="panel-body">
+            <div class="panel-body"style="height:170px">
               <p class="text-center">
-                <% @profiles.each do |profile| %>
-                  <%= link_to profile.name, profile_path(profile) %>
+                <% @vacancies.each do |vacancy| %>
+                  <% i = Instrument.find(vacancy.instrument_id)%>
+                  <%= link_to i.name , vacancy_path(vacancy) %>
                   <br>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
-      </div>
+  <%else%>
+
+<h3 align="center">
+Bienvenidos
+</h3>
+<hr>
+<p align="center">
+  Esta pagina web se armo con el fin de juntar musicos<br>que tiene ganas de crear o integrar bandas
+</p>
+
+  <%end%>
 
     </div>
   </div>

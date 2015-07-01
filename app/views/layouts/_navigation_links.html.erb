@@ -9,8 +9,9 @@
 </ul>
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? %>
+
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones <span class="glyphicon glyphicon-chevron-down"></span></a>
+      <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <% @perfil = Profile.where(user_id: current_user.id).first %>
         <li> <%= link_to ' Mi Perfil', profile_path(@perfil)%> </li>
@@ -20,6 +21,9 @@
         <li role="separator" class="divider"></li>
         <li> <%= link_to 'Perfiles', profiles_path %> </li>
         <li> <%= link_to 'Bandas', bands_path %> </li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to 'Vacantes', vacancies_path %></li>
+        <li><%= link_to 'Crear Vacante ', new_vacancy_path %></li>
       </ul>
     </li>
     <li > <%= link_to('  Salir',destroy_user_session_path, :method => :delete, :class=>"glyphicon glyphicon-off") %> </li>

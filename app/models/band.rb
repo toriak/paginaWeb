@@ -10,5 +10,6 @@ class Band < ActiveRecord::Base
 	belongs_to :creator, class_name: 'User'
 
 	has_and_belongs_to_many :musical_styles
+	has_many :vacancies
 
 end

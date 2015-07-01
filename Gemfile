@@ -80,3 +80,4 @@ group :development do
 	gem 'rails_layout', '~> 1.0.25'
 	gem 'better_errors','~> 2.0.0'
 end
+gem 'will_paginate', '~> 3.0.7'

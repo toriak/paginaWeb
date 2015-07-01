@@ -1,0 +1,23 @@
+<div class="jumbotron">
+	<h1 align="center"> Vacantes </h1>
+  <div class="container">
+  	<div class="well well-lg">
+      <div class="container">
+      <p class="text-center">
+
+        <% @vacancies.each do |vacancy| %>
+          <% band = Band.find(vacancy.band_id)%>
+          <% instrument = Instrument.find(vacancy.instrument_id)%>
+          <div class="list-group col-md-6 col-md-offset-3">
+            <a href=<%=band_path(band)%> class="list-group-item ">
+              <h2 class="list-group-item-heading"> Banda : <%= band.name %> </h2>
+              <p class="list-group-item-text"> Instrumento : <%= instrument.name %> </p>
+            </a>
+          </div>
+        <% end %>
+
+  		</p>
+      </div>
+		</div>
+  </div>
+</div>

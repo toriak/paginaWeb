@@ -1,0 +1,19 @@
+<div class="jumbotron">
+	<% band = Band.find(@vacancy.band_id)%>
+	<h1 align="center"> Vacante de <%= band.name %></h1>
+
+  <div class="container">
+
+  	<div class="well well-lg">
+			<p class="text-center">
+				<% instrument = Instrument.find(@vacancy.instrument_id)%>
+				<strong> Instrumento </strong>	<%= instrument.name %>
+			</p>
+			<%= link_to "informacion de la banda ", band_path(band) , :class=>" btn btn-primary btn-lg"%>
+  	</div>
+	</div>
+	<hr>
+	<!--% if policy(@profile).edit? %-->
+		
+	<!--% end %-->
+</div>

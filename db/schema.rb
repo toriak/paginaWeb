@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621051836) do
+ActiveRecord::Schema.define(version: 20150630214034) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -103,6 +103,13 @@ ActiveRecord::Schema.define(version: 20150621051836) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+
+  create_table "vacancies", force: true do |t|
+    t.integer  "band_id"
+    t.integer  "instrument_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "welcomes", force: true do |t|
     t.datetime "created_at"

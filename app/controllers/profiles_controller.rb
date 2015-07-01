@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show]
 
 	add_breadcrumb "Inicio", :root_path
-  	add_breadcrumb "Perfiles", :profiles_path
+  add_breadcrumb "Perfiles", :profiles_path
 
 	def index
 		authorize Profile

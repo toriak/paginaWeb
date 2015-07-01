@@ -1,9 +1,8 @@
 class InstrumentsController < ApplicationController
 
-	skip_before_action :authenticate_user!, only: [:index]
 
 	add_breadcrumb "Inicio", :root_path
-  	add_breadcrumb "Intrumentos", :instruments_path
+  add_breadcrumb "Intrumentos", :instruments_path
 
 	def index
 		authorize Instrument
