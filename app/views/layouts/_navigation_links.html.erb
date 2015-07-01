@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <% if current_user.present? %>
   <% if current_user.has_role? :admin %>
-    <li> <%= link_to '  Admin', rails_admin_path , :class=>"glyphicon glyphicon-user" %> </li>
+    <li> <%= link_to '  Admin', rails_admin_path %> </li>
   <% end %>
 <% end %>
 
@@ -26,7 +26,7 @@
         <li><%= link_to 'Crear Vacante ', new_vacancy_path %></li>
       </ul>
     </li>
-    <li > <%= link_to('  Salir',destroy_user_session_path, :method => :delete, :class=>"glyphicon glyphicon-off") %> </li>
+    <li > <%= link_to('  Salir',destroy_user_session_path, :method => :delete) %> </li>
   <% else %>
     <li><%= link_to 'Registrar', new_user_registration_path %></li>
     <li> <%= link_to('Ingresar', new_user_session_path)  %> </li>
