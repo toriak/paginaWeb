@@ -6,13 +6,17 @@ class WelcomesController < ApplicationController
 
 	def index
 		authorize Band
-		@bands = Band.all
+		@bands = Band.all.limit(5)
+              .order(created_at: :desc)
 
 		authorize Profile
-		@profiles = Profile.all
+		@profiles = Profile.all.limit(5)
+              .order(created_at: :desc)
 
 		#authorize Vacancy
-		@vacancies = Vacancy.all
+		@vacancies = Vacancy.all.limit(5)
+      				.order(created_at: :desc)
+
 	end
 
 end

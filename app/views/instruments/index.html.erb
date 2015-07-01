@@ -3,13 +3,16 @@
 	<h1 align="center"> Instrumentos </h1>
 
   <div class="container">
-  	<div class="well well-lg">
-  		<p class="text-center">
-  			<% @instruments.each do |intrument| %>
-					<%= intrument.name %> <br>
-				<% end %>
-  		</p>
+  	<div class="well well-lg" style="height:400px" >
+      <% @instruments.each do |intrument| %>
+        <div class="panel panel-default col-md-6 col-md-offset-3 text-center">
+          <h3>
+            Nombre : <%= intrument.name %>
+          </h3>
+        </div>
+			<% end %>
 		</div>
+    <%= will_paginate @instruments, renderer: BootstrapPagination::Rails ,:class=>" pagination-sm " %>
   </div>
 
   <hr>

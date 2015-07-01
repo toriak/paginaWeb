@@ -6,7 +6,8 @@ class MusicalStylesController < ApplicationController
 
 	def index
 		#authorize MusicalStyle
-		@musical_styles = MusicalStyle.all
+		@musical_styles = MusicalStyle.all.paginate(:page => params[:page], :per_page => 4)
+      .order(created_at: :desc)
 	end
 	def new
 		#authorize MusicalStyle

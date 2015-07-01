@@ -11,12 +11,10 @@
       <%= f.label :name %> <%= f.text_field :name %>
     </p>
     <p class="text-center">
-      <%= f.submit %>
+      <%= f.submit "Crear", :class=>"btn btn-primary btn-lg"%>
+      <%= link_to "Cancelar", instruments_path(), :class=>"btn btn-primary btn-lg" %>
     </p>
   </div>
-
   </div>
-  <hr>
-    <%= link_to "Cancelar", instruments_path(), :class=>"btn btn-primary btn-lg" %>
 </div>
 <% end %>

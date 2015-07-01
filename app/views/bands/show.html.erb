@@ -23,7 +23,7 @@
 		<%= link_to " ", edit_band_path(@band) , :class=>"glyphicon glyphicon-pencil btn btn-primary btn-lg"%>
 		<% end %>
 		<% if policy(@band).destroy? %>
-		<%= link_to " ", band_path(@band) , :class=>"glyphicon glyphicon-remove btn btn-danger btn-lg"%>
+		<%= link_to " ", band_path(@band) ,:method => "DELETE", :class=>"glyphicon glyphicon-remove btn btn-danger btn-lg"%>
 	<% end %>
 </div>
 

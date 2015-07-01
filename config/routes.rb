@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcomes#index'
-  resources :bands
   resources :profiles, except: [:destroy, :new]
+  resources :bands
+  resources :vacancies, except: [:show]
   resources :instruments, only: [:new, :create, :index]
   resources :musical_styles, only: [:new, :create, :index]
-  resources :vacancies
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

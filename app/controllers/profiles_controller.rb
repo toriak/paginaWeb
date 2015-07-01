@@ -7,7 +7,8 @@ class ProfilesController < ApplicationController
 
 	def index
 		authorize Profile
-		@profiles = Profile.all
+		@profiles = Profile.all.paginate(:page => params[:page], :per_page => 5)
+      .order(created_at: :desc)
 	end
 
 	def show

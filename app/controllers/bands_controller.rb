@@ -6,7 +6,9 @@ class BandsController < ApplicationController
 
 	def index
 		authorize Band
-		@bands = Band.all
+		@bands = Band.all.paginate(:page => params[:page], :per_page => 5)
+      .order(created_at: :desc)
+
 	end
 
 	def show
@@ -19,11 +21,13 @@ class BandsController < ApplicationController
   		@band = Band.find(params[:id])
   		authorize @band
   		add_breadcrumb "Edicion de "+@band.name, edit_band_path(@band)
+  		@mensaje_boton = "Actualizar"
 	end
 	def new
 		authorize Band
 		@band = Band.new
 		add_breadcrumb "Creacion de Banda", new_band_path()
+		@mensaje_boton = "Crear Banda"
 	end
 	def create
 		@band = Band.new(band_params)

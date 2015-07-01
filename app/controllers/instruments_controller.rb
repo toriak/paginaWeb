@@ -6,7 +6,8 @@ class InstrumentsController < ApplicationController
 
 	def index
 		authorize Instrument
-		@instruments = Instrument.all
+		@instruments = Instrument.all.paginate(:page => params[:page], :per_page => 4)
+      .order(created_at: :desc)
 	end
 
 	def new

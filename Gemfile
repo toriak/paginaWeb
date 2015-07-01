@@ -81,3 +81,4 @@ group :development do
 	gem 'better_errors','~> 2.0.0'
 end
 gem 'will_paginate', '~> 3.0.7'
+gem 'will_paginate-bootstrap', '~> 1.0.1'

@@ -3,15 +3,17 @@
 	<h1 align="center"> Bandas </h1>
 
   <div class="container">
-  	<div class="well well-lg">
-  		<p class="text-center">
-  			<% @bands.each do |band| %>
-           <%= link_to band.name, band_path(band) %> <br>
-				<% end %>
-  		</p>
-		</div>
+    <div class="well well-lg" style="height:400px" >
+  		<% @bands.each do |band| %>
+        <div class="list-group col-md-6 col-md-offset-3">
+            <a href=<%=band_path(band)%> class="list-group-item ">
+              <h3 class="list-group-item-heading text-center"> Banda : <%= band.name %> </h3>
+            </a>
+        </div>
+      <% end %>
+    </div>
+    <%= will_paginate @bands, renderer: BootstrapPagination::Rails ,:class=>" pagination-sm " %>
   </div>
-
   <hr>
   <% if policy(Band).new? %>
     <%= link_to "Crear Banda", new_band_path() , :class => "btn btn-primary btn-lg" %>

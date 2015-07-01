@@ -17,7 +17,7 @@
       </p>
       <p class="text-center">
         <strong> <%= f.label "Fecha de Nacimiento" %> </strong>
-        <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 %>
+        <%= f.date_select :birth_date, start_year: 1970, end_year: 2015 , :class=>"form-group"%>
       </p>
       <p class="text-center">
         <strong> <%= f.label :Instrumentos %> </strong> <br>
@@ -28,11 +28,10 @@
         <%= collection_check_boxes(:profile, :musical_style_ids, MusicalStyle.all, :id, :name) %>
       </p>
       <p class="text-center">
-        <%= f.submit %>
+        <%= f.submit "Actualizar Perfil" , :class=> "btn btn-primary btn-lg"%>
+      <%= link_to "Cancelar", profile_path(@profile), :class=>"btn btn-primary btn-lg" %>
       </p>
     </div>
   </div>
-  <hr>
-  <a class="btn btn-primary btn-lg" href="/" role="button">Inicio</a>
 </div>
 <% end %>

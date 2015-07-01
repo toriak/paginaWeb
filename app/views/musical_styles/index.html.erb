@@ -3,15 +3,16 @@
 	<h1 align="center"> Estilos </h1>
 
   <div class="container">
-  	<div class="well well-lg">
-  		<p class="text-center">
-  			<% @musical_styles.each do |musical_style| %>
-					<%= musical_style.name %> <br>
-				<% end %>
-  		</p>
-		</div>
-  </div>
-
+  	<div class="well well-lg" style="height:400px" >
+      <% @musical_styles.each do |musical_style| %>
+        <div class="panel panel-default col-md-6 col-md-offset-3 text-center">
+          <h3>
+            Nombre : <%= musical_style.name %>
+          </h3>
+        </div>
+      <% end %>
+    </div>
+    <%= will_paginate @musical_styles, renderer: BootstrapPagination::Rails ,:class=>" pagination-sm "%>
   <hr>
   <% if policy(MusicalStyle).new? %>
     <%= link_to "Nuevo Estilo", new_musical_style_path() , :class => "btn btn-primary btn-lg" %>

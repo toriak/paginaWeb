@@ -21,8 +21,8 @@
         <%= collection_check_boxes(:band, :musical_style_ids, MusicalStyle.all, :id, :name) %>
     </p>
     <p class="text-center">
-      <%= f.submit :class=>"btn btn-primary btn-lg" %>
-      <%= link_to "Cancelar", bands_path(), :class=>"btn btn-primary btn-lg" %>
+      <%= f.submit "#{@mensaje_boton}",:class=>"btn btn-primary btn-lg" %>
+      <%= link_to "Cancelar", band_path(@band), :class=>"btn btn-primary btn-lg" %>
     </p>
   </div>
 

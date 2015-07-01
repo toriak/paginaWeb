@@ -3,16 +3,19 @@
 	<h1 align="center"> Perfiles </h1>
 
   <div class="container">
-    <div class="well well-lg">
-      <p class="text-center">
-  		  <% @profiles.each do |profile| %>
-          <%= link_to profile.name, profile_path(profile) %>
-          <br>
-        <% end %>
-      </p>
+    <div class="well well-lg" style="height:400px" >
+      <% @profiles.each do |profile| %>
+        <div class="list-group col-md-6 col-md-offset-3">
+            <a href=<%=profile_path(profile)%> class="list-group-item ">
+              <h3 class="list-group-item-heading text-center">
+                Perfil : <%= profile.name %>
+              </h3>
+            </a>
+        </div>
+      <% end %>
     </div>
+    <%= will_paginate @profiles, renderer: BootstrapPagination::Rails ,:class=>" pagination-sm " %>
   </div>
-
   <hr>
   <%= link_to 'Bandas', bands_path, :class=>"btn btn-primary btn-lg" %>
 </div>

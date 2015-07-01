@@ -1,23 +1,21 @@
 <div class="jumbotron">
-	<h1 align="center"> Vacantes </h1>
+	<h2 align="center"> Vacantes </h2>
   <div class="container">
-  	<div class="well well-lg">
-      <div class="container">
-      <p class="text-center">
-
+  	<div class="well well-lg" style="height:440px" >
         <% @vacancies.each do |vacancy| %>
           <% band = Band.find(vacancy.band_id)%>
           <% instrument = Instrument.find(vacancy.instrument_id)%>
           <div class="list-group col-md-6 col-md-offset-3">
             <a href=<%=band_path(band)%> class="list-group-item ">
-              <h2 class="list-group-item-heading"> Banda : <%= band.name %> </h2>
-              <p class="list-group-item-text"> Instrumento : <%= instrument.name %> </p>
+              <h3 class="list-group-item-heading text-center"> Banda : <%= band.name %> </h3>
+              <p class="list-group-item-text text-center"> Instrumento : <%= instrument.name %> </p>
+              <%= link_to "eliminar", vacancy_path(vacancy),:method => "DELETE",:class=>"btn btn-primary btn-xs"%>
+              <%= link_to "editar", edit_vacancy_path(vacancy), :class=>"btn btn-primary btn-xs" %>
             </a>
           </div>
         <% end %>
-
-  		</p>
-      </div>
 		</div>
+    <%= will_paginate @vacancies, :class=>"text-center", renderer: BootstrapPagination::Rails ,:class=>" pagination-sm " %>
   </div>
+  <%= link_to 'Crear Vacante ', new_vacancy_path , :class=>"btn btn-primary btn-lg" %>
 </div>
