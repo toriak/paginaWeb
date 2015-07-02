@@ -16,7 +16,7 @@
   </div>
   <hr>
   <% if policy(Band).new? %>
-    <%= link_to "Crear Banda", new_band_path() , :class => "btn btn-primary btn-lg" %>
+    <%= link_to "Crear Banda", new_band_path , :class => "btn btn-primary btn-lg" %>
 	<% end %>
     <%= link_to 'Perfiles', profiles_path, :class=>"btn btn-primary btn-lg" %>
 </div>

@@ -1,11 +1,5 @@
 <%= form_for @band do |f| %>
 
-  <% if @band.errors.any? %>
-    <% @band.errors.full_messages.each do |msg| %>
-      <%flash.alert = msg %>
-    <% end %>
-  <% end %>
-
   <div class="well well-lg">
     <p class="text-center">
       <%= f.label :Nombre %> <%= f.text_field :name %>
@@ -22,7 +16,7 @@
     </p>
     <p class="text-center">
       <%= f.submit "#{@mensaje_boton}",:class=>"btn btn-primary btn-lg" %>
-      <%= link_to "Cancelar", band_path(@band), :class=>"btn btn-primary btn-lg" %>
+      <%= link_to "Cancelar", bands_path(@band), :class=>"btn btn-primary btn-lg" %>
     </p>
   </div>
 
