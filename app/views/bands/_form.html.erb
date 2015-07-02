@@ -11,7 +11,7 @@
       <%= f.label 'Fecha de Creacion' %> <%= f.date_select :creation_date, start_year: 1970, end_year: 2015 %>
     </p>
     <p class="text-center">
-        <%= f.label 'Estylos musicales' %>
+        <%= f.label 'Estilos musicales' %>
         <%= collection_check_boxes(:band, :musical_style_ids, MusicalStyle.all, :id, :name) %>
     </p>
     <p class="text-center">

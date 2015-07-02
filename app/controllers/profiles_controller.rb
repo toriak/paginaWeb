@@ -35,10 +35,10 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
 		authorize @profile
 		if @profile.update(profile_params)
-			flash[:notice] = "Se ACTUALIZO el perfil correctamente"
+			flash[:notice] = "Se actualizo los datos correctamente"
 			redirect_to @profile
 		else
-			flash[:alert] = "Ocurrio un error en la actualizacion"
+			flash[:alert] = "Ha ocurrido un error en la actualizacion"
 			redirect_to edit_profile_path @profile
 		end
 	end

@@ -18,10 +18,10 @@ class MusicalStylesController < ApplicationController
 		@musical_style = MusicalStyle.new(musical_style_params)
 		#authorize @musical_style
 		if @musical_style.save
-			flash[:notice] = "El estilo #{@musical_style.name} se a CREADO corectamente"
+			flash[:notice] = "Se creo el estilo #{@musical_style.name}"
 			redirect_to musical_styles_path()
 		else
-			flash[:alert] = "Ah ocurrido un error. Vuelva a intentarlo"
+			flash[:alert] = "Ha ocurrido un error"
 			redirect_to  new_musical_style_path
 		end
 

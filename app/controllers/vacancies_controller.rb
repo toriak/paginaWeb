@@ -31,7 +31,7 @@ class VacanciesController < ApplicationController
 		@vacancy = Vacancy.new(vacancy_params)
 		authorize @vacancy
 		if @vacancy.save
-			flash[:notice] = "Se dio de alta la vacante"
+			flash[:notice] = "Se dio de alta una vacante"
 			redirect_to vacancies_path
 		else
 			flash[:alert] = "Ah ocurrido un error"
@@ -51,10 +51,10 @@ class VacanciesController < ApplicationController
 		@vacancy = Vacancy.find(params[:id])
 		authorize @vacancy
 		if @vacancy.update(vacancy_params)
-			flash[:notice] = "Se ACTUALIZO la vacante"
+			flash[:notice] = "Se actualizo los datos de la vacante"
 			redirect_to vacancies_path
 		else
-			flash[:alert] = "Ocurrio un error en la actualizacion"
+			flash[:alert] = "Ha ocurrido un error en la actualizacion"
 			redirect_to edit_vacancy_path(@vacancy)
 		end
 	end

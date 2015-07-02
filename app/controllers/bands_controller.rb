@@ -33,10 +33,10 @@ class BandsController < ApplicationController
 		@band.creator = current_user
 		authorize @band
 		if @band.save
-      		flash[:notice] = "Se a CREADO correctamente la banda #{@band.name}"
+      		flash[:notice] = "Se creo la banda #{@band.name}"
 		  	redirect_to @band
     	else
-      		flash[:alert] = "Ah ocurrido un error vuelva a intentarlo"
+      		flash[:alert] = "Ha ocurrido un error"
       		redirect_to new_band_path
     	end
 	end
@@ -45,7 +45,7 @@ class BandsController < ApplicationController
 		@band = Band.find(params[:id])
 		authorize @band
   	@band.destroy
-    flash[:notice] = "Se a ELIMINADO correctamente la banda"
+    flash[:notice] = "Se elimino la banda"
 	  redirect_to bands_path
 	end
 
@@ -53,10 +53,10 @@ class BandsController < ApplicationController
 		@band = Band.find(params[:id])
 		authorize @band
 		if @band.update(band_params)
-      		flash[:notice] = "Se a ACTUALIZADO correctamente los datos de #{@band.name}"
+      		flash[:notice] = "Se actualizo los datos correctamente"
 			redirect_to @band
 		else
-      		flash[:alert] = "Ah ocurrido un error"
+      		flash[:alert] = "Ha ocurrido un error en la actualizacion"
       		redirect_to edit_band_path @band
 		end
 	end

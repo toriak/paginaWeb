@@ -10,15 +10,21 @@ RSpec.describe Vacancy, :type => :model do
     user_admin
   end
 
-  let(:guitarra) {Instrument.new(name:"guitarra")}
-  let(:banda) {Band.new(name:"band of shill",mail:"shill@example.com",creator: creator)}
+  let(:guitarra) {Instrument.create!(name:"guitarra")}
+  let(:banda) {Band.create!(name:"band of shill",mail:"shill@example.com",creator: creator)}
 
   describe "Validations" do
+    before (:each) {
+      DatabaseCleaner.clean
+    }
     it " is not allowed when band is nil" do
       expect(Vacancy.new(band: nil, instrument: guitarra)).not_to be_valid
     end
-    it "" do
+    it " is not allowed when instrument is nil" do
       expect(Vacancy.new(band: banda, instrument: nil)).not_to be_valid
+    end
+    it " is not allowed" do
+      expect(Vacancy.new(band: banda, instrument: guitarra)).to be_valid
     end
   end
 end

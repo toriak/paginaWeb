@@ -85,4 +85,5 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0'
+	gem 'database_cleaner'
 end
