@@ -1,27 +1,23 @@
 class VacancyPolicy < ApplicationPolicy
 
   def index?
-    user.present?
-  end
-
-  def show?
-    index?
+    create?
   end
 
   def create?
-    record.creator == user
-  end
-
-  def new?
     user.present?
   end
 
+  def new?
+    create?
+  end
+
   def update?
-    user.present? && (record.creator == user || (user.has_role? :admin))
+    user.present? && (record.band.creator == user || (user.has_role? :admin))
   end
 
   def destroy?
-    user.present? && (record.creator == user || (user.has_role? :admin))
+    update?
   end
 
 end

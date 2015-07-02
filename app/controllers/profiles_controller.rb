@@ -21,7 +21,8 @@ class ProfilesController < ApplicationController
 		@profile = Profile.new(profile_params)
 		@profile.creator = current_user
 		authorize @profile
-		@profile.save
+		@profile.save!
+		redirect_to @profile
 	end
 
 	def edit
