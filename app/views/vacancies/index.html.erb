@@ -9,8 +9,12 @@
             <a href=<%=band_path(band)%> class="list-group-item ">
               <h3 class="list-group-item-heading text-center"> Banda : <%= band.name %> </h3>
               <p class="list-group-item-text text-center"> Instrumento : <%= instrument.name %> </p>
-              <%= link_to "eliminar", vacancy_path(vacancy),:method => "DELETE",:class=>"btn btn-primary btn-xs"%>
-              <%= link_to "editar", edit_vacancy_path(vacancy), :class=>"btn btn-primary btn-xs" %>
+              <% if policy(vacancy).edit? %>
+                <%= link_to "editar", edit_vacancy_path(vacancy), :class=>"btn btn-primary btn-xs" %>
+              <% end %>
+              <% if policy(vacancy).destroy? %>
+                <%= link_to "eliminar", vacancy_path(vacancy),:method => "DELETE",:class=>"btn btn-danger btn-xs"%>
+              <% end %>
             </a>
           </div>
         <% end %>

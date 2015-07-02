@@ -6,12 +6,13 @@
 
   	<div class="well well-lg">
 			<p class="text-center">
-				<strong> creation_date: </strong> <%= @band.creation_date %>
+				<strong> Fecha de Creacion: </strong> <%= @band.creation_date %>
 			</p>
 			<p class="text-center">
-				<strong> mail: </strong><%= @band.mail %>
+				<strong> Mail: </strong><%= @band.mail %>
 			</p>
 			<p class="text-center">
+				<strong> Estilos Musicales </strong>
 				<% @band.musical_styles.each do |band| %>
 					<span class="label label-primary"><%= band.name %></span>
 				<% end %>

@@ -2,7 +2,8 @@ class Band < ActiveRecord::Base
 
 	validates :name,
 		presence: true,
-		length:{minimum: 1}
+		length:{minimum: 1},
+		uniqueness: true
 	validates :mail,
 		presence: true
 	validates :creator,

@@ -6,18 +6,20 @@
 
   	<div class="well well-lg">
 			<p class="text-center">
-				<strong> birth_date: </strong>	<%= @profile.birth_date %>
+				<strong> Fecha de Nacimiento </strong>	<%= @profile.birth_date %>
 			</p>
 			<p class="text-center">
-				<strong> email: </strong>	<%= @profile.email %>
+				<strong> Mail: </strong>	<%= @profile.email %>
 			</p>
 
 			<p class="text-center">
+				<strong> Instrumentos : </strong>
 				<% @profile.instruments.each do |profile| %>
 					<span class="label label-primary"><%= profile.name %></span>
 				<% end %>
 			</p>
 			<p class="text-center">
+				<strong> Estilos Musicales: </strong>
 				<% @profile.musical_styles.each do |profile| %>
 					<span class="label label-primary"><%= profile.name %></span>
 				<% end %>

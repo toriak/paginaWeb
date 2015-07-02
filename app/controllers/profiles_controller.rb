@@ -21,8 +21,7 @@ class ProfilesController < ApplicationController
 		@profile = Profile.new(profile_params)
 		@profile.creator = current_user
 		authorize @profile
-		@profile.save!
-		redirect_to @profile
+		@profile.save
 	end
 
 	def edit
@@ -35,9 +34,11 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
 		authorize @profile
 		if @profile.update(profile_params)
+			flash[:notice] = "Se ACTUALIZO el perfil correctamente"
 			redirect_to @profile
 		else
-			render 'edit'
+			flash[:alert] = "Ocurrio un error en la actualizacion"
+			redirect_to edit_profile_path @profile
 		end
 	end
 
