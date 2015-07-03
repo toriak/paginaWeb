@@ -4,10 +4,10 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    user.present? && (user.has_role? :admin)
   end
 
   def new?
-    user.present?
+    create?
   end
 end

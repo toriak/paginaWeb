@@ -21,5 +21,7 @@
 		</div>
     <%= will_paginate @vacancies, :class=>"text-center", renderer: BootstrapPagination::Rails ,:class=>" pagination-sm " %>
   </div>
-  <%= link_to 'Crear Vacante ', new_vacancy_path , :class=>"btn btn-primary btn-lg" %>
+  <% if policy(Vacancy).create? %>
+    <%= link_to 'Crear Vacante ', new_vacancy_path , :class=>"btn btn-primary btn-lg" %>
+  <% end %>
 </div>

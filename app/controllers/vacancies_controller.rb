@@ -1,27 +1,27 @@
 class VacanciesController < ApplicationController
 
-	add_breadcrumb "Inicio", :root_path
+  add_breadcrumb "Inicio", :root_path
   add_breadcrumb "vacantes", :vacancies_path
 
 	def index
-		authorize Vacancy
-		@vacancies = Vacancy.all.paginate(:page => params[:page], :per_page => 3)
-                            .order(created_at: :desc)
+    authorize Vacancy
+    @vacancies = Vacancy.all.paginate(:page => params[:page], :per_page => 3)
+                        .order(created_at: :desc)
 	end
 
 	def edit
-  	@vacancy = Vacancy.find(params[:id])
-  	authorize @vacancy
-  	#variables que se necesitan en el la vista
-  	@band = Band.find(@vacancy.band_id)
-  	@edit = true
-  	@mensaje_boton = "Actualizar"
-  	add_breadcrumb "Editando Vacante de \"#{@band.name}\"", edit_vacancy_path(@vacancy)
+    @vacancy = Vacancy.find(params[:id])
+    authorize @vacancy
+    #variables que se necesitan en el la vista
+    @band = Band.find(@vacancy.band_id)
+    @edit = true
+    @mensaje_boton = "Actualizar"
+    add_breadcrumb "Editando Vacante de \"#{@band.name}\"", edit_vacancy_path(@vacancy)
 	end
 
 	def new
-		authorize Vacancy
-		@vacancy = Vacancy.new
+    authorize Vacancy
+    @vacancy = Vacancy.new
 		@edit = false
 		@mensaje_boton = "Crear Vacante"
 		add_breadcrumb "Creacion de vacante", new_vacancy_path()

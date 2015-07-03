@@ -16,7 +16,7 @@
   </div>
 
   <hr>
-  <% if current_user.present? %>
+  <% if policy(Instrument).new? %>
     <%= link_to "Nuevo Instrumentos", new_instrument_path() , :class => "btn btn-primary btn-lg" %>
   <% end %>
 </div>

@@ -4,9 +4,9 @@ class MusicalStylePolicy < ApplicationPolicy
     true
   end
   def new?
-    user.present?
+    create?
   end
   def create?
-    user.present?
+    user.present? && (user.has_role? :admin)
   end
 end
