@@ -1,11 +1,5 @@
 <%= form_for @profile do |f| %>
 
-<% if @profile.errors.any? %>
-    <% @profile.errors.full_messages.each do |msg| %>
-    <%flash.notice = msg %>
-  <% end %>
-<% end %>
-
     <div class="well well-lg">
       <p class="text-center">
         <%= f.label :Nombre %>
