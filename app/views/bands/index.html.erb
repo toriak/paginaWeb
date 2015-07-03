@@ -7,7 +7,7 @@
   		<% @bands.each do |band| %>
         <div class="list-group col-md-6 col-md-offset-3">
             <a href=<%=band_path(band)%> class="list-group-item ">
-              <h3 class="list-group-item-heading text-center"> Banda : <%= band.name %> </h3>
+              <h3 class="list-group-item-heading text-center"> <%= band.name %> </h3>
             </a>
         </div>
       <% end %>
